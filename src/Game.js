@@ -5,9 +5,9 @@ import paper from './assets/icon-paper.svg';
 import scissors from './assets/icon-scissors.svg';
 
 const choices = [
-  { name: 'rock', image: rock },
-  { name: 'paper', image: paper },
-  { name: 'scissors', image: scissors },
+  { name: 'rock', image: rock, borderColor: 'red' },
+  { name: 'paper', image: paper, borderColor: 'orange' },
+  { name: 'scissors', image: scissors, borderColor: 'green' },
 ];
 
 const Game = () => {
@@ -37,15 +37,27 @@ const Game = () => {
 
   return (
     <div style={{ height: '100vh', backgroundColor: '#192a56', color: 'white', textAlign: 'center', padding: '20px' }}>
-      <div style={{ padding: 40, fontSize: 40 }}>
-        Rock, Paper, Scissors
-      </div>
+      <div style={{ 
+        marginTop: 30,
+        display: 'inline-block',
+        padding: '30px 20px', 
+        fontSize: 40,
+        borderRadius: '10px', 
+        border: '1px solid white'
+      }}>Rock, Paper, Scissors</div>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: 60}}>
         {choices.map((choice) => (
           <div
             key={choice.name}
             onClick={() => handleChoice(choice)}
-            style={{ margin: '0 20px', cursor: 'pointer', backgroundColor: 'white', padding: 30, borderRadius: '50%'}}
+            style={{ 
+              margin: '0 20px', 
+              cursor: 'pointer', 
+              backgroundColor: 'white', 
+              padding: 30, 
+              borderRadius: '50%', 
+              border: `18px solid ${choice.borderColor}` 
+            }}
           >
             <img src={choice.image} alt={choice.name} style={{ height: 100, width: 100 }} />
           </div>
